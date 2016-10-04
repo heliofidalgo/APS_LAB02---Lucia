@@ -5,6 +5,13 @@
  */
 package interfaces;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
+
 /**
  *
  * @author helio.fidalgo
@@ -38,25 +45,32 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         javax.swing.GroupLayout jdpprincipalLayout = new javax.swing.GroupLayout(jdpprincipal);
         jdpprincipal.setLayout(jdpprincipalLayout);
         jdpprincipalLayout.setHorizontalGroup(
             jdpprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+            .addGap(0, 1340, Short.MAX_VALUE)
         );
         jdpprincipalLayout.setVerticalGroup(
             jdpprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
 
         getContentPane().add(jdpprincipal);
-        jdpprincipal.setBounds(10, 20, 1030, 600);
+        jdpprincipal.setBounds(10, 10, 1340, 610);
 
         jldata.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jldata.setForeground(new java.awt.Color(51, 51, 255));
@@ -73,10 +87,10 @@ public class Principal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(878, Short.MAX_VALUE)
-                .addComponent(jldata, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jlhora, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(935, Short.MAX_VALUE)
+                .addComponent(jldata, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jlhora, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -85,12 +99,12 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jldata, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jlhora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlhora, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 620, 1030, 40);
+        jPanel1.setBounds(130, 630, 1220, 40);
 
         jMenu1.setText("Cadastro");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +147,23 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu5.setText("Tabelas");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+
+        jMenu6.setText("Tabelas de Contas");
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenu6);
+
+        jMenuBar1.add(jMenu5);
+
         jMenu4.setText("Login");
 
         jMenuItem1.setText("Login & Senha");
@@ -147,10 +178,11 @@ public class Principal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 1064, 724);
+        setBounds(0, 0, 1371, 735);
     }// </editor-fold>//GEN-END:initComponents
 
     //link das video aulas
+    // https://www.youtube.com/watch?v=cPimEehnqFU 
     // https://www.youtube.com/watch?v=6PkjSLdOPNg
     // https://www.youtube.com/watch?v=55CgbuWnmNc
     //   pesquisa google criação de telas no java
@@ -171,7 +203,7 @@ public class Principal extends javax.swing.JFrame {
         jdpprincipal.add(obj);
         obj.setVisible(true);       
         
-// TODO add your handling code here:
+// TODO add your handling code here: CADASTRO DE CLIENTES
     }//GEN-LAST:event_jMenuCadastroActionPerformed
 
         // sub tela suporte
@@ -181,7 +213,7 @@ public class Principal extends javax.swing.JFrame {
         jdpprincipal.add(obj1);
         obj1.setVisible(true);  
 
-        // TODO add your handling code here:
+        // TODO add your handling code here: CONTATO
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
         // sub tela download
@@ -190,7 +222,7 @@ public class Principal extends javax.swing.JFrame {
         jDownloadFrame obj2=new jDownloadFrame();
         jdpprincipal.add(obj2);
         obj2.setVisible(true);          
-// TODO add your handling code here:
+// TODO add your handling code here:  SUPORTE
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     // sub tela login e senha
@@ -199,8 +231,40 @@ public class Principal extends javax.swing.JFrame {
         jdpprincipal.add(obj3);
         obj3.setVisible(true);  
         
-// TODO add your handling code here:
+// TODO add your handling code here: LOGIN E SENHA
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+                // TODO add your handling code here: TIME AND DATE HERE !!<<
+       //data
+        Date dataSistema = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                jldata.setText(formato.format(dataSistema));
+
+       //hora
+        Timer timer = new Timer(1000, (ActionListener) new hora());
+            timer.start();
+    }//GEN-LAST:event_formWindowActivated
+
+    class hora implements ActionLinstener {
+        public void actionPerformed (ActionEvent e) {
+            Calendar now = Calendar.getInstance();
+             jlhora.setText (String.format("%1$tH:%1$tM:%1$tS", now));
+    }
+}
+    
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+        jTabela obj6=new jTabela();
+        jdpprincipal.add(obj6);
+        obj6.setVisible(true);
+        // TODO add your handling code here: TABELA DE CONYAS
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+       // TODO add your handling code here:  DESATIVADO !!
+        
+    }//GEN-LAST:event_jMenu5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,6 +306,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuItem jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuCadastro;
     private javax.swing.JMenuItem jMenuItem1;
@@ -252,4 +318,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jldata;
     private javax.swing.JLabel jlhora;
     // End of variables declaration//GEN-END:variables
-}
+
+
+}// fim da principal
